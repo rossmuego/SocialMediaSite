@@ -1,0 +1,22 @@
+$userLogin = $_POST['userLogin'];
+        $passLogin = $_POST['passLogin'];
+        
+        $sql = "SELECT * FROM users WHERE username='$userLogin' AND password='$passLogin'";
+        $queryLogin = mysqli_query($conn, $sql);
+        $login_check = mysqli_num_rows($queryLogin);
+        
+        if($login_check >= 1){
+            echo '<button class="btn waves-effect waves-light" type="submit" name="action">Login<i class="material-icons right">send</i></button>';
+        } else {
+            echo "User not registered.";
+        }
+        
+        
+$query=mysqli_query($conn,"SELECT * FROM users WHERE username='$_POST[userLogin]' && password='$_POST[passLogin]'");
+		$count=mysqli_num_rows($query);
+	
+		if ($count==1){
+			echo '<button class="btn waves-effect waves-light" type="submit" name="action">Login<i class="material-icons right">send</i></button>';
+        } else {
+			echo "Invalid username or password";
+        }
